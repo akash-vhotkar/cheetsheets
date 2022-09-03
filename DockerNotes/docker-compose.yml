@@ -1,0 +1,18 @@
+version: '3.0'
+services:
+  mongo:
+    image: 'mongo'
+    container_name: 'mongo'
+    environment:
+      -DB_PORT: 27017
+      -DB_HOST : localhost
+      -DB_NAME : users
+  server:
+    image: node
+    build: .
+    depends_on: 
+      - mongo
+    ports:
+      - '9000:9000'
+    environment : 
+      -PORT: 9000

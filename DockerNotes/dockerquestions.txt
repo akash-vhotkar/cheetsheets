@@ -1,0 +1,35 @@
+what is difference between docker and docker compose
+
+first difference
+The key difference between docker run versus docker-compose is
+that docker run is entirely command line based, while docker-compose 
+reads configuration data from a YAML file. 
+
+second difference
+The second major difference is that docker run can only start one container at a time, 
+while docker-compose will configure and run multiple.
+
+what is difference between docker image and docker container
+image is not runnable its just code buile of code
+where docker runnable instance of docker image
+
+
+--build is used to build the image
+if we are using the docker compose file if we pass --build tag the  docker build image then run it 
+
+
+sudo docker compose  up -d --build 
+it is command to run multicontainer applications
+
+sudo docker stop containername
+to stop docker container
+
+
+sudo docker restart containername
+to Restart docker container
+
+
+mongoose url in multicontainer applications
+"mongodb://mongo:27017/users"
+
+

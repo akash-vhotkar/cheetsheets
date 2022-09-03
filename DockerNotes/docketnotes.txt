@@ -1,0 +1,60 @@
+docker defination 
+Docker is an open platform for developing, shipping, and running applications. 
+Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. 
+With Docker, you can manage your infrastructure in the same ways you manage your applications.
+
+
+docket doemon
+
+The Docker daemon (dockerd) listens for Docker API requests 
+and manages Docker objects such as images, containers, networks, and volumes. 
+
+docker image
+
+An image is a read-only template with instructions for creating a Docker container.
+Often, an image is based on another image, with some additional customization.
+
+docker container
+A container is a runnable instance of an image. 
+You can create, start, stop, move, or delete a container using the Docker API or CLI.
+
+detached mode
+mode in which in the  containers running on background 
+
+
+
+docker search  image
+check whther the image is availaible on docker registries
+sudo docker search imagename
+
+docker pull images
+pull the images availaible on docker registries
+sudo docker pull imagename
+
+docker check active containers
+check all active container of docker 
+sudo docker ps 
+
+docker get all the container
+Get all the container
+sudo docker ps --all 
+
+
+img commands 
+enter into the running docker container
+sudo docker exec -it  containername  commmandname
+
+
+to enter inside the docker container enter following commands
+sudo docker  exec -it  contianername /bin/bash
+
+
+to create own docker image
+sudo docker build  imagename   path
+example 
+sudo docker build --name imagename .
+
+
+
+
+
