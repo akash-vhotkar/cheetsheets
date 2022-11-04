@@ -1,0 +1,169 @@
+What is SSO 
+Best site to learn ssh things
+
+Google doc  for same 
+Link: https://docs.google.com/document/d/19p7TcrsCXeKqk24MHBQ-bhkrMW4pRuQ-eNYlVC8dhbE/edit?usp=sharing
+
+Bese resource link below
+https://www.ssh.com/academy/ssh/copy-id#:~:text=ssh%2Dcopy%2Did%20installs%20an,tool%20is%20part%20of%20OpenSSH.
+
+Vidio
+https://www.youtube.com/watch?v=AtuAdk4MwWw
+
+
+SSH
+Ssh is the communication protocol which enables to communicate two computer 
+The ssh is also  secure shell or secure socket shell 
+
+-i identity_file A file from which the identity key (private key) for public key authentication is read.
+
+Ssh -i public_key_path  user_name@host(IP/Domain_name)
+ After that we should enter the password corresponding user_name 
+
+ssh user_name@host(IP/Domain_name
+Some of the most important command-line options for the OpenSSH client are:
+
+-1 Use protocol version 1 only.
+-2 Use protocol version 2 only.
+-4 Use IPv4 addresses only.
+-6 Use IPv6 addresses only.
+-A Enable forwarding of the authentication agent connection.
+-a Disable forwarding of the authentication agent connection.
+-C Use data compression
+-c cipher_spec Selects the cipher specification for encrypting the session.
+-D [bind_address:]port Dynamic application-level port forwarding. This allocates a socket to listen to port on the local side. When a connection is made to this port, the connection is forwarded over the secure channel, and the application protocol is then used to determine where to connect to from the remote machine.
+-E log_file Append debug logs to log_file instead of standard error.
+
+-F configfile Specifies a per-user configuration file. The default for the per-user configuration file is ~/.ssh/config.
+-g Allows remote hosts to connect to local forwarded ports.
+-i identity_file A file from which the identity key (private key) for public key authentication is read.
+-J [user@]host[:port] Connect to the target host by first making a ssh connection to the pjump host[(/iam/jump-host) and then establishing a TCP forwarding to the ultimate destination from there.
+-l login_name Specifies the user to log in as on the remote machine.
+-p port Port to connect to on the remote host.
+-q Quiet mode.
+-V Display the version number.
+-v Verbose mode.
+-X Enables X11 forwarding.
+
+Public key
+A public key that is copied to the SSH server(s). Anyone with a copy of the public key can encrypt data which can then only be read by the person who holds the corresponding private key.
+Public key is used for encryption 
+
+
+Private key 
+A private key that remains (only) with the user. The possession of this key is proof of the user's identity. Only a user in possession of a private key that corresponds to the public key at the server will be able to authenticate successfully.
+Private key are used to decryption 
+
+Identity key 
+An identity key is a private key that is used in SSH for granting access to servers. They are a kind of SSH key, used for public key authentication.
+The private keys used for user authentication are called identity keys.
+If  we have identity key for ssh-public key then passphrase not asked during connection to the host 
+
+
+What is difference between ssh and openssh 
+
+Ssh is the communication protocol which is used to do communication  between two computers
+Openssh 
+Openssh is the open source implementation of ssh protocol 
+
+
+Basic command to connect 
+Ssh username@hosname
+
+SSH-KEYGEN
+Ssh keygen is a tool for creating new key pair for authentication
+Which is used to login , signon , authentication 
+
+Ssh passphrases 
+SSH passphrases protect your private key from being used by someone who doesn't know the passphrase. Without a passphrase, anyone who gains access to your computer has the potential to copy your private key. For example, family members, coworkers, system administrators, and hostile actors could gain access.
+
+While entering the key we
+File name asked 
+Passphrase which password 
+
+Command 
+Ssh-keygen  -t  rsa 
+-t used to specify  the encryption algorithm 
+
+If we want to remove the hostname to use the public key 
+
+SSH-AGENT 
+Ssh-agent is key manager  for ssh 
+It holds the keys and certification , unencrypted and ready for use by ssh 
+
+The ssh-agent is a helper program that keeps track of user's identity keys and their passphrases. 
+The agent can then use the keys to log into other servers without having the user type in a password or passphrase again. This implements a form of single sign-on (SSO).
+
+
+How to check whether ssh agent is working or not 
+Command 
+Ssh-agent 
+If output contains the SSH_AUTH-SOC variable then ssh-agent is working 
+
+What is ssh-agent forwarding 
+It is mechanism where the ssh client  allowed to  use there local ssh-agent into the ssh-server as local there
+
+
+SSH-ADD
+we do  ssh-add for particular ssh private  key 
+We adding passphrase for the  particular private key in ssh-agent so ssh-agent will use our identity key enter passphrase every time we are connecting to remote host 
+
+He scenario where the ssh add commands works 
+Every time connect to remote server the server will ask for the passphrase what will do add the  the  identity key to the ssh-agent when the remote server  ask for password the client agent will give the password 
+ 
+Prerequisites 
+We are added the  identity key in the ssh agent  using command below 
+Ssh-add  pah_private_key
+Example 
+Ssh-add id_rsa
+
+Step 1: when client connect to remote server then ask for password 
+Step 2 : ssh-agent using identity key and share the password decrypt the token send by remote server and sent secret to remote server 
+Step 3 : these way we are login without password 
+
+Advantage 
+If we are maintaining multiple ssh-connections  ssh-agent save lots of time for entering the password 
+
+SSH-COPY-ID
+
+Prerequisites 
+We should be the user for the remote server and should know password for the user 
+Using these passwordless authentication system will works 
+
+Command 
+Step 1 :  ssh-copy-id -i ~/.ssh/public_key  user@host
+Step 2: cmd will ask password for the user entered 
+Step 3: after entering the password public_key copied to the remote server
+
+
+How the SSH  system authentication works
+Step 1 : we share or public key with  remote server
+Step2 : then we try to login then remote server match your public key
+Step 3 : Remote server will share one ssh key which is encrypted using  the public key with some  secret  and share with client
+Step 4 :  client  will decode the ssh  with users private key and share secret with the remote server  that verifies that you are the correct user accessing the remote server 
+
+Same above are used in the github in which we are adding the  public key into github using that  key github verifies that  the you are the correct user pulling and pushing into the repo 
+
+
+PORT FORWARDING 
+Local port forwarding 
+Redirect incoming request to some other port using layer three devices is called as the port forwarding 
+In ec2 server we are setting some inbound and outbound rules which port  should be forwarded where 
+Port forwarding  reduce  cost of purchasing server  for the new services
+Example 
+123.2398.23.23: 443 forwarded to http://localhost:3000  which is web server 
+123.2398.23.23: 444 forwarded to http://localhost: 4000 which is backend server 
+
+
+What is  x11
+X11 is the protocol which is used to access Gui of remote server 
+X11 forwarding is a mechanism that allows a user to start up remote applications, and then forward the application display to their local Windows machine. It enables you to run GUIs from a local server.
+
+TTY
+TTY stands for “teletypewriter.”
+TTYs are devices that enable typing (type, typewriter) from a distance (tele).
+In a modern operating system (OS), the concept applies directly. Linux uses a device file to represent a virtual TTY, which enables interaction with the OS by handling input (usually a keyboard) and output (usually a screen).
+The teletype was the perfect candidate as an input/output device. It was, after all, a device designed to allow messages to be typed, encoded, sent, received, decoded, and printed.
+
+
+
