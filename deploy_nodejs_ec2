@@ -1,0 +1,84 @@
+Prerequisites 
+
+Vim commands 
+:q exit without saving 
+:q!  Force exit without saving 
+:wq save and exit 
+I to move to insert mode of the vim  
+
+Make sure that server running public access directory  because server logger required to write on the access.log and error.log file 
+
+Location were the database and collections are stored 
+var/lib/mongodb 
+
+
+Location were the config file of the mongoose stored needed when we need to alter database store path 
+/etc/mongod.conf
+
+
+Best documentation tto install mongoose in the ubuntu in ec2 ubuntu instance 
+How To Install MongoDB on Ubuntu 18.04 | DigitalOcean
+
+Here is the command to copy paste the directory 
+Sudo cp -R  NODEJS_SETUP  /var/www
+
+
+Phase one to setup database 
+Step1 install mongoose 
+Step2 run 
+Command : mongosh
+These command  gets you in the mongoose shell
+
+Step 3 if don’t know the user 
+db.createUser(
+  {
+    user: "root",
+    pwd: "root1234",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+);
+
+Step4 
+Create database which you want to use
+Example  EC2DB 
+Database name 
+
+Phase two to setup .env  file 
+Step 1 create env file
+Sudo touch .env 
+
+Step2  paste you content 
+
+Step3 : save and exit 
+Command  :wq
+Phase 3 
+Node module installation 
+NODE I
+
+Phase 4 
+Pm2 start ecosystem.config.js
+
+Phase 5  
+Check server logs 
+Pm2 logs server
+
+Phase 6
+Update redirection url in the nginx file 
+Below mentioned 
+
+/api {
+            proxy_pass http://localhost:9000;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection 'upgrade';
+            proxy_set_header Host $host;
+            proxy_cache_bypass $http_upgrade;
+        }
+
+
+
+
+
+
+ 
+
