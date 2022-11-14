@@ -1,0 +1,36 @@
+Redis 
+The open source, in-memory data store used by millions of developers as a database, cache, streaming engine, and message broker.
+Redis is an acronym that stands for REmote DIctionary Server.
+All Redis data resides in memory, which enables low latency and high throughput data access. Unlike traditional databases, In-memory data stores don't require a trip to disk, reducing engine latency to microseconds.
+
+In the  traditional database the data is stored in the disk storage 
+
+Redis connection string 
+protocol://[user]:[password]@host[:port].
+
+
+Redis local storage connection string 
+Step 1 :  download  redis zip folder 
+Step 2 : Extract  redis zip folder
+Step 3: Start redis-server.exe
+Step 4:  Redis can  connect to local now 
+
+redis://localhost:6379
+
+
+Redis Stack is a suite of three components: Redis Stack Server combines open source Redis wif RediSearch, RedisJSON, RedisGraph, RedisTimeSeries and RedisBloom.
+
+ RedisInsight is a powerful tool for visualizing and optimizing Redis data, making real-time application development easier and more fun TEMPthan ever before.
+
+
+
+Redis Stack is an extension of Redis that adds modern data models and processing engines to provide a complete developer experience.
+
+In addition to all of the features of OSS Redis, Redis Stack supports:
+
+Queryable JSON documents
+Full-text search
+Time series data (ingestion & querying)
+Graph data models with the Cypher query language
+Probabilistic data structures
+
