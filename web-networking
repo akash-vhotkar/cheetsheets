@@ -1,0 +1,57 @@
+What is latency means 
+It is how much time  it takes for data packet travel from one point to designated point  
+
+What is resources 
+Resources are the files that a page needs in order to display correctly
+
+What is transferred in network tab
+"Transferred" is the compressed size of all resources. You can think of it as the amount of upload and download data that a mobile user will use in order to load this page. 
+
+What is Resources in network tab
+"Resources" is the uncompressed size of all resources.
+
+What is Round trip time 
+It is duration in milliseconds 
+If is time takes for request to  travel from starting time to  destination then destination to  starting time 
+It is used to measure  health of the network
+
+What is time to live 
+time to live (TTL) refers to the amount of time or “hops” that a packet is set to exist inside a network before being discarded by a router.
+
+What is TTFB 
+Time to first byte 
+It is time  time taken for client to receive first byte of the response 
+
+
+What is dom content loaded
+
+DOMContentLoaded indicates when the browser has finished parsing the document 
+( but other resources such as images and stylesheets may/may not have been downloaded ). 
+It is represented as a orange  line.
+
+ 
+What is Load time  (IMP)
+
+It is time required to download all the media content of the page
+The load event fired will occur once all the initial resources (images, stylesheets, JavaScript) have been downloaded.
+It is represented to blue line 
+
+Queueing. 
+
+There are higher priority requests.
+There are already six TCP connections open for this origin, which is the limit. Applies to HTTP/1.0 and HTTP/1.1 only.
+The browser is briefly allocating space in the disk cache 
+
+
+Stalled. 
+
+The request could be stalled for any of the reasons described in Queueing.
+
+
+
+
+
+Initial connection. 
+The browser is establishing a connection, including TCP handshakes/retries and negotiating an SSL.
+ 
+
