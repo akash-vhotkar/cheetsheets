@@ -1,0 +1,631 @@
+MUST-DO Questions for Interviews
+(DBMS, CN and OS)
+(Sheet for the sole purpose of quick revision and preparation in less time)
+
+Previous Sheets: 
+SDE sheet(Over 500+ success stories): https://www.youtube.com/watch?v=WNtzUR_MwUQ&t=6s  
+
+CR Sheet: 
+https://www.youtube.com/watch?v=qahaODNyI3M&t=2s 
+
+CP Sheet: 
+(used by most of the competitive programmers to practice and get practice problems) 
+https://www.youtube.com/watch?v=QtTPohzfxA8&t=92s 
+
+Copyright: Take U Forward (Striver_79) 
+Channel 1: https://www.youtube.com/channel/UCJskGeByzRRSvmOyZOz61ig 
+Channel 2: https://www.youtube.com/channel/UCvEKHATlVq84hm1jduTYm8g 
+
+
+Why trust this sheet ? 
+Ans: Candidate Master, 6*, Currently working with Media.net (Directi), ex Intern at Amazon India. Major success with the previous sheets, and more importantly trusted by his “TAKEUFORWARD FAM” 
+
+Operating System:
+
+What is the main purpose of an operating system? Discuss different types?
+ 
+An Operating System (OS) is an interface between a computer user and computer hardware. An operating system is a software which performs all the basic tasks like file management, memory management, process management, handling input and output, and controlling peripheral devices such as disk drives and printers.
+https://www.mygreatlearning.com/blog/what-is-operating-system/
+1)    Processor Management: An operating system manages the processor’s working by allocating various jobs to it and ensuring that each process receives enough time from the processor to function properly.
+2)    Memory Management: An operating system manages the allocation and deallocation of the memory to various processes and ensures that the other process does not consume the memory allocated to one process.
+3)    Device Management: There are various input and output devices. An operating system controls the working of these input-output devices. It receives the requests from these devices, performs a specific task, and communicates back to the requesting process.
+4)    File Management: An operating system keeps track of information regarding the creation, deletion, transfer, copy, and storage of files in an organized way. It also maintains the integrity of the data stored in these files, including the file directory structure, by protecting against unauthorized access.
+5)    Security: The operating system provides various techniques which assure the integrity and confidentiality of user data. Following security measures are used to protect user data:
+Protection against unauthorized access through login.
+Protection against intrusion by keeping Firefall active.
+Protecting the system memory against malicious access.
+Displaying messages related to system vulnerabilities.
+6)    Error Detection: From time to time, the operating system checks the system for any external threat or malicious software activity. It also checks the hardware for any type of damage. This process displays several alerts to the user so that the appropriate action can be taken against any damage caused to the system.
+
+7)    Job Scheduling: In a multitasking operating system where multiple programs run simultaneously, the operating system determines which applications should run in which order and how time should be allocated to each application.
+ 
+Operating system has two componants
+Shell
+Shell is outermost layer of operating system
+Functions of shell
+ Interpreraing  user intestructions for operating sytem
+Getting  output from operating system forword to user
+ 
+Kernel
+Kernerl is core component of operating system
+It convert hight level instructions to low level instructions
+ 
+ 
+What is a socket, kernel and monolithic kernel ?
+Types of kernel
+Monolithic kernel
+All the system services run in the kernel space
+Disadavantage
+Diffult to debug
+ 
+Micto kernel 
+All the system services run in the  user space
+Only the system the micro kernel is working on the kernel space
+ 
+Hybrid kernel
+Kernel space
+User space
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Difference between process and program and thread? Different types of process.
+https://javaconceptoftheday.com/differences-between-program-vs-process-vs-threads/
+program
+the executable file having set of instructions called the  program
+process
+the executing the program called the process
+thread
+the smallest executable unit of process called the thread
+
+Define virtual memory, thrashing, threads.  
+Virtual memory
+Virtual Memory is a storage allocation scheme in which secondary memory can be addressed as though it were part of the main memory.
+Virtual memory is a section of volatile memory created temporarily on the storage drive
+
+Swapping 
+Swapping is the process the OS uses to move data between RAM and virtual memory.
+
+Page fault
+A page fault occurs when a program attempts to access data or code that is in its address space, but is not currently located in the system RAM.
+
+Thrashing
+Thrashing is state  when the page fault and swapping happens very frequently at a higher rate, and then the operating system has to spend more time swapping these pages.
+
+Thrashing is a state in which the CPU performs 'productive' work less, and 'swapping' more
+
+
+Threads
+
+States of process 
+create
+Ready
+Run
+Terminate
+wait 
+Suspended ready
+Suspended wait 
+
+
+
+Paging
+Paging is a storage mechanism used to retrieve processes from the secondary storage into the main memory in the form of pages.
+All pages size is same 
+
+segmentation 
+ Segmentation is a memory management technique in which the memory is divided into the variable size parts called segment
+Segment corresponds to block of code , procedure , functions
+Segments are varry in size
+
+
+Degree of multiprogramming
+The degree of multiprogramming describes the maximum number of processes that a single-processor system can accommodate efficiently.
+
+Throughput 
+Number of processes that are completed per unit time is called as throughput
+
+Cpu utilization 
+We want keep the cpu as busy as possible 
+
+Turnaround time
+The time interval between the submission of process  to time of compilation process is called turnaround time
+
+Waiting time
+Sum of time period to get cpu for execution is called as waiting time
+
+Response time 
+Time between the submission of the process and getting first response is called as response time
+
+Burst time 
+The time to execute the process completely is called as burst time
+
+
+Types of scheduling 
+Preemptive scheduling 
+Preemptive scheduling is used when a process switches from running state to ready state or from the waiting state to ready state.
+
+Non-preemptive scheduling
+Non-preemptive Scheduling is used when a process terminates, or a process switches from running to the waiting state.
+
+Types of cpu scheduling algorithm 
+First Come First Serve (FCFS)
+  Shortest-Job-First (SJF) Scheduling,
+      	3) Shortest Remaining Time
+ 4) Priority Scheduling,
+5) Round Robin Scheduling
+6) Multilevel Queue Scheduling.
+
+
+Semaphore  
+Why does trashing occur? 
+13.	What is paging and why do we need it? 
+14.	Demand Paging, Segmentation
+What is semaphore and mutex (Differences might be asked)? Define Binary semaphore.  
+What is RAID ? Different types. 
+What is a deadlock ? Different conditions to achieve a deadlock. 
+
+What is fragmentation? Types of fragmentation. 
+What is spooling ? 
+What is semaphore and mutex (Differences might be asked)? Define Binary semaphore. 
+Belady’s Anomaly
+Starving and Aging in OS
+Why does trashing occur? 
+What is paging and why do we need it? 
+Demand Paging, Segmentation ?
+
+Real Time Operating System, types of RTOS. 
+Difference between main memory and secondary memory. 
+Dynamic Binding 
+FCFS Scheduling 
+SJF Scheduling 
+SRTF Scheduling 
+LRTF Scheduling 
+Priority Scheduling 
+Round Robin Scheduling 
+Producer Consumer Problem 
+Banker’s Algorithm 
+Explain Cache
+Cache is a type of memory that is used to increase the speed of data access. Normally, the data required for any process resides in the main memory.
+
+Diff between direct mapping and associative mapping 
+Diff between multitasking and multiprocessing 
+
+
+
+DBMS: 
+What is DBMS ? Mention advantages..
+
+A Database Management System (DBMS) is defined as the software system that allows users to define, create, maintain and control access to the database.
+
+ DBMS makes it possible for end users to create, read, update and delete      data in database.
+
+ It is a layer between programs and data. 
+
+https://www.tutorialspoint.com/Advantages-of-Database-Management-System
+
+Advantages of dbms
+ 
+Reduce data redundancy
+Database security 
+Database consistency
+Database integrity
+Security
+
+
+What is Database? 
+
+	What is Data?
+
+Data is a collection of a distinct small unit of information. It can be used in a variety of forms like text, numbers, media, bytes, etc. it can be stored in pieces of paper or electronic memory, etc.
+
+Database
+ 
+Database is defined as organize collection of data 
+
+
+What is a database system? 
+
+Hierarchical database
+In thise database management system in which  data is stored in thre tree like structure 
+Hierachicaal format
+ 
+Network database
+	
+	The network database model allows each child to have multiple parents. It helps you to address the need to model more complex relationships like as the orders/parts many-to-many relationship. In this model, entities are organized in a graph which can be accessed through several paths.
+ 
+ 
+Relational database
+Relational DBMS is the most widely used DBMS model because it is one of the easiest. This model is based on normalizing data in the rows and columns of the tables. Relational model stored in fixed structures and manipulated using SQL.
+ 
+Object-Oriented database
+In Object-oriented Model data stored in the form of objects. The structure which is called classes which display data within it. It is one of the components of DBMS that defines a database as a collection of objects which stores both data members values and operations.
+ 
+ 
+
+What is RDBMS ? Properties..
+
+ A relational database management system (RDBMS or just RDB) is a common type of database that stores data in tables, so it can be used in relation to other stored datasets
+
+Relational Database Management Systems maintains data integrity by simulating the following features:  
+
+Entity Integrity: No two records of the database table can be completely duplicate.
+
+Referential Integrity: Only the rows of those tables can be deleted which are not used by other tables. Otherwise, it may lead to data inconsistency.
+
+User-defined Integrity: Rules defined by the users based on confidentiality and access.
+
+Domain integrity: The columns of the database tables are enclosed within some structured limits, based on default values, type of data or ranges.
+
+Types of database languages 
+https://www.javatpoint.com/dbms-language
+
+
+ACID properties (VVVVV IMP)
+	ACID properties and RDBMS
+RDBMS follows four different properties 
+
+Atomicity −
+ This property states that a transaction must be treated as an atomic unit, that is, either all of its operations are executed or none. There must be no state in a database where a transaction is left partially completed. States should be defined either before the execution of the transaction or after the execution/abortion/failure of the transaction.
+Consistency −
+ The database must remain in a consistent state after any transaction. No transaction should have any adverse effect on the data residing in the database. If the database was in a consistent state before the execution of a transaction, it must remain consistent after the execution of the transaction as well.
+Durability −
+ The database should be durable enough to hold all its latest updates even if the system fails or restarts. If a transaction updates a chunk of data in a database and commits, then the database will hold the modified data. If a transaction commits but the system fails before the data could be written on to the disk, then that data will be updated once the system springs back into action.
+Isolation − 
+In a database system where more than one transaction are being executed simultaneously and in parallel, the property of isolation states that all the transactions will be carried out and executed 
+
+Difference between vertical and horizontal scaling 
+
+
+
+
+
+Horizontal scaling (aka scaling out) refers to adding additional nodes or machines to your infrastructure
+
+Vertical scaling (aka scaling up) describes adding additional resources to a system so that it meets demand
+
+
+
+
+
+What is sharding 
+	Sharding is a very important concept which helps the system to keep data into different resources according to the sharding process.
+
+In DBMS, Sharding is a type of DataBase partitioning in which a large DataBase is divided or partitioned into smaller data, also known as shards. These shards are not only smaller, but also faster and hence easily manageable.
+Keys in DBMS 
+
+Referential integrity
+
+A REFERENTIAL INTEGRITY is a database concept that is used to build and maintain logical relationships between tables to avoid logical corruption of data. It is a very useful and important part in RDBMS.
+
+Usually, referential integrity is made up of the combination of a primary key and a foreign key.
+
+The main concept of REFERENTIAL INTEGRITY is that it does not allow to add any record in a table that contains the foreign key unless the reference table containing a corresponding primary key.
+
+
+Super key 
+
+The single key or group of keys which uniquely identify each rows in a table is called as super key
+Super key can contain duplicate attributes
+
+
+Candidate key
+A single key or group of key that defined each row uniquely is called as candidate key
+ All candidate key subset of the super key 
+
+Primary key 
+Primary key is candidate key
+Key which defne each tuple uniquely  is called as primary key
+One table cannot  have more than one primary key
+
+
+Secondary key
+
+Secondary key is also called a alternate key
+Each  table have multiple keys called candidate key 
+The candidate keys  other than primary key is called the secondary key and  alternate key
+
+
+Composite key
+
+Composite key   is candidate key which consiste more than one attribute is called as composite key
+
+Foreign key
+
+The foreign key is used to link one or more than one table together. It is also known as the referencing key. 
+A foreign key matches the primary key field of another table.
+ It means a foreign key field in one table refers to the primary key field of the other table.
+It identifies each row of another table uniquely that maintains the referential integrity in MySQL.
+
+
+Types of relationship
+One to one  relationship
+One to many relationship
+Many to one relationship
+Many to many relationship
+ 
+Data abstraction in DBMS, three levels of it 
+Indexing in DBMS 
+What is DDL (Data Definition Language)
+Ddl language stands for data defination language 
+It is used to to define database structure and pattern
+It is used to create skeleton of the tablee
+Create 
+Alter 
+Drop 
+Truncate
+Rename 
+Comment
+ 
+What is DML (Data ManipSelect: It is used to retrieve data from a database.
+Insert: It is used to insert data into a table.
+Update: It is used to update existing data within a table.
+Delete: It is used to delete all records from a table.
+Merge: It performs UPSERT operation, i.e., insert or update operations.
+Call: It is used to call a structured query language or a Java subprogram.
+Explain Plan: It has the parameter of explaining data.
+Lock Table: It controls concurrency 
+
+
+
+Dcl command 
+Grant : granting access to user to database
+Revoke : take back permission to user
+
+
+Tcl command
+ Commit  save translation in database 
+Rollback  rollback the translation in database 
+
+What is normalization ? Types of them ..
+ Normalization is a process of organizing the data in database to avoid data redundancy
+
+
+
+What is denormalization ? 
+What is functional dependency ? 
+Constraint
+constraints are a set of rules implemented on tables in relational databases to dictate what data can be inserted, updated or deleted in its tables. 
+
+Functional dependency
+
+A functional dependency is a constraint that specifies the relationship between two sets of attributes where one set can accurately determine the value of other sets
+x->y
+X is called as determinant
+Y is called as dependent
+
+There are four types of functional dependencies
+
+Trivial functional dependency
+In Trivial Functional Dependency, a dependent is always a subset of the determinant.
+example
+{roll_no, name} → name
+
+
+Non-Trivial functional dependencyIn 
+Non-trivial functional dependency, the dependent is strictly not a subset of the determinant.
+Example
+roll_no → name
+
+
+
+
+
+Multivalued functional dependency
+In Multivalued functional dependency, entities of the dependent set are not dependent on each other.
+a → {b, c}
+
+Transitive functional dependency
+In transitive functional dependency, dependent is indirectly dependent on determinant.
+ a → b & b → c
+B is non prime attribute 
+A prime attribute
+C non prime attribute
+
+
+Prime attribute 
+The attribute which part of candidate key is calle as prime attribute
+
+Non prime attribute
+The attribute which is not part of candidate key is called as non-prime attribute
+
+
+Data Abstraction
+Data Abstraction is a process of hiding unwanted or irrelevant details from the end user.
+
+Level of abstraction in dbms
+
+Internal level or physical level
+describes Actual PHYSICAL storage structure and access paths.
+
+Conceptual level or logical level
+describes Structure and constraints for the entire database
+
+View level
+Describes various user views
+
+
+
+
+Aggregate functions
+MySQL's aggregate function is used to perform calculations on multiple values and return 
+the result in a single value like the average of all values
+
+
+
+
+
+All aggregate function
+
+Generalization 
+Generalization is the process of extracting common properties from a set of entities and create a generalized entity from it
+It is a bottom up approach
+
+For Example, STUDENT and FACULTY can be generalized to a higher level entity called PERSON
+
+
+Serialization
+In specialization, an entity is divided into sub-entities based on their characteristics.
+It is a  top down approach 
+
+For example
+EMPLOYEE entity in an Employee management system can be specialized into DEVELOPER, TESTER etc.
+
+Aggregation
+Aggregation is an abstraction through which we can represent relationships as higher level entity sets.
+
+For Example, Employee working for a project may require some machinery. So, REQUIRE relationship is needed between relationship WORKS_FOR and entity MACHINERY
+
+Indexing
+
+Indexing is a data structure technique which allows you to quickly retrieve records from a database file. An Index is a small table having only two columns.
+
+
+
+Types of indexing methods
+
+Primary index
+Secondary index
+Cluster index
+
+https://www.guru99.com/indexing-in-database.html
+
+
+
+
+
+
+
+
+
+
+
+View
+Views in SQL are kind of virtual tables. A view also has rows and columns as they are in a real table in the database.
+
+
+
+Like  keyword
+(_) represents one, single character
+(%) starts with or ends with
+a% == means string starting with a 
+%a == means string ending with a
+_a% == meaning string second space with a
+
+select all customers with a City NOT starting with "b", "s", or "p":
+SELECT * FROM Customers WHERE City LIKE '[!bsp]%';
+
+
+
+
+
+
+
+
+
+
+
+Between keyword
+
+Limit 
+Offset 
+
+What is JOIN .. Explain types of JOINs 
+Inner and Outer Join
+
+Conflict serializibility
+ A schedule is called conflict serializability if after swapping of non-conflicting operations, it can transform into a serial schedule.
+
+Conflicting Operations
+The two operations become conflicting if all conditions satisfy:
+
+Both belong to separate transactions.
+They have the same data item.
+They contain at least one write operation.
+
+
+
+Concurrency control in database management
+
+Concurrency Control in Database Management System is a procedure of managing simultaneous operations without conflicting with each other.
+
+Concurrency control protocol 
+
+Lock-Based Protocols
+Two Phase Locking Protocol
+Timestamp-Based Protocols
+Validation-Based Protocols
+
+Shared lock and exclusive lock
+
+https://www.guru99.com/dbms-concurrency-control.html
+In
+The IN operator is a shorthand for multiple OR conditions.
+Having 
+Group by
+Case
+
+
+Self join
+SQL statement matches customers that are from the same city:
+SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City
+FROM Customers A, Customers B
+WHERE A.CustomerID <> B.CustomerID
+AND A.City = B.City
+ORDER BY A.City;
+
+Union
+Left and right table having same no of columns then only thise will work
+The UNION operator selects only distinct values by default. To allow duplicate values, use UNION ALL
+
+
+Drop will delete all the table 
+
+Diff between TRUNCATE and DELETE command ..
+Truccate will delete all rows 
+Delete will delete were condition is satisfied
+
+
+
+FULL OUTER JOIN and FULL JOIN are the same.
+ 
+Difference between Intension and Extension in a DataBase
+
+Compute Networks: 
+Define network 
+What do you mean by network topology, and explain types of them 
+Define bandwidth, node and link ? 
+Explain TCP model .. 
+Layers of OSI model 
+Significance of Data Link Layer
+Define gateway, difference between gateway and router .. 
+What does ping command do ? 
+What is DNS, DNS forwarder, NIC, ? 
+What is MAC address ? 
+What is IP address, private IP address, public IP address, APIPA ? 
+Difference between IPv4 and IPv6
+What is subnet ? 
+Firewalls 
+Different type of delays 
+3 way handshaking 
+Server-side load balancer
+RSA Algorithm 
+What is HTTP and HTTPS protocol ? 
+What is SMTP protocol ? 
+TCP and UDP protocol, prepare differences
+What happens when you enter “google.com” (very very famous question) 
+Hub vs Switch 
+VPN, advantages and disadvantages of it 
+LAN 
+
+
+
+The HAVING clause was added to SQL because the WHERE keyword cannot be used with aggregate functions.
+
