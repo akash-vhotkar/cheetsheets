@@ -1,0 +1,30 @@
+Hashing is the technique in which  we are generating hash value from  string using hash algorithms 
+ 
+
+In the hashing algorithms we cannot decrypt the hash value we just  comare the value at time of the checking 
+Example 
+Suppose we are enter password Abcd@123  = hash value  = 234324
+For cheking again enter password Abcd@123  = hash  value  = 234324
+So in these we never decrypt the hash value we just compare hash value
+
+
+Message digest  5 algorithm 
+Which will give  128 fixed length hash value  
+The MD5 (message-digest algorithm) hashing algorithm is a one-way cryptographic function that accepts a message of any length as input and returns as output a fixed-length digest value to be used for authenticating the original message.
+
+
+SHA  = secure hash algorithem 
+Has two categories  such 
+SHA1 = secure hash algorithm 1 which will generate  160 characters long  hash value 
+SHA2 = secure hash algorithem  2 which have family of algorithem 
+SHA256 , SHA224 etc
+
+SHA256 
+Which is generate  256 characters long hash value from given string 
+
+SHA224 
+Which is generate  224 characters long hash value from given string 
+
+
+SHA-1 is a 160-bit (20 byte) hash that is represented by a 40-digit hexadecimal string of numbers.
+ SHA-2, on the other hand, is a family of six different hash functions that generate hash values of varying lengths — 224, 256, 384, or 512 bits
