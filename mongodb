@@ -1,0 +1,390 @@
+https://docs.google.com/document/d/1eBDEgn1AuzDaGqG7VYV8WW1Vi3C33JnTYfmWAVyqWfU/edit?usp=sharing
+
+Default behaviour of mongoose in the lean option 
+Mongoose converts the query results from POJOs to Mongoose documents.
+Pre, post  are the hooks in mongoose 
+
+Transaction in mongoose
+Step1 get mongoose session 
+Step2 start translation 
+Step3  perform operation on the transactions
+Step3   commit the translation 
+Step4 if the operation is failed then abort translation
+
+const createUserTransation  = async (data)=>{
+    try {
+        const session = await mongoose.startSession();
+        session.startTransaction();
+        try{
+        const newuser  = new userModel(data);
+        newuser.save();
+        session.commitTransaction();
+        }
+        catch(error){
+
+            session.abortTransaction();
+return new Error(error);
+        }
+        
+    }
+    catch(error){
+        return new Error(error);
+    }
+}
+
+
+Middlewares in mongoose 
+document middleware
+model middleware
+aggregate middleware
+query middleware.
+
+Five function where we can use middleware are
+validate()
+save()
+remove()
+updateOne()
+deleteOne()
+
+
+Pre save data collections  
+schema.pre("save", function(next){
+    this.fulltext  = this.name +this.email;
+    next();
+})
+
+Model middlewar
+Model middleware hooks into static functions on a Model class,
+Mongoose has middleware for the insertMany() function. 
+The insertMany() the function takes an array of objects, validates them, and sends them to the MongoDB server in bulk.
+Because insertMany() makes only 1 request to the database regardless of the number of documents, it can be faster than calling save() on each document individually.
+
+Example of model middleware
+schema.post('insertMany', function(res) {
+  this === Model; // true
+  res[0] instanceof Model; // true
+  res[0].name; // 'test'
+});
+
+Document middleware
+Document middleware hooks into methods on a Model class. 
+
+Difference between model middleware and document  middleware 
+In model middleware functions, this refers to the model and in document middleware this refers to document .
+
+Query middlewar 
+schema.pre('find', function() {
+  console.log(this instanceof mongoose.Query); // true
+  this.start = Date.now();
+});
+
+Hydrate in mongoose 
+Shortcut for creating a new Document from existing raw data, pre-saved in the DB. The document returned has no paths marked as modified initially.
+
+Questions are pending 
+Triggers , procedures , transitions , stream and cursors these points are pending 
+
+Procedures 
+The stored procedures are not supported in procedures 
+
+Getter and setter in mongoose 
+https://www.youtube.com/watch?v=oFWtPB7d_hY
+
+Enable getters and setters in options
+toJSON : {
+        getters : true 
+    },
+    toObject:{
+        getters: true 
+    },
+   
+
+ 
+ 
+name :{
+        type :String ,
+        required: true ,
+        get: getName ,
+        set: setName
+    },
+   
+
+
+
+What is upsert in mongoose 
+We can use upsert option with findAndModify() method. In this method, the default value of this option is false. If we set the value of this option is true, then the method performs one of the following operation:
+
+If a document or documents found that matches the given query criteria, then the findAndModify() method updates the document/documents.
+If no document/documents match the given query criteria, then the findAndModify() method inserts a new document in the collection.
+
+Example of upsert 
+db.employee.findAndModify({query:{name:"Ram"}, 
+                            update:{$set:{department:"Development"}},
+                            upsert:true})
+
+
+
+Static and methods in mongoose 
+https://www.youtube.com/watch?v=UbHpBDoxG3c
+
+Statics
+
+Statistics are pretty much the same as methods but allow for defining functions that exist directly on your Model.
+ In options of the schema  
+statics :{
+        getAllUsers(){
+            return this.find({});
+        }  
+    },
+Execution 
+const data  = await userModel.getAllUsers();
+
+Methods 
+When we have instance of the document  then we can call methods 
+New instance example  =  new userModel({name :”akash vhotkar”, email})
+In Option 
+ methods :{
+      getByname(cb){
+           return mongoose.model('users').find({name : this.name}, cb);
+     }
+  }
+
+Execution 
+const  newuser  = new userModel(req.body);
+         newuser.getByname((err, list)=>{
+            if(err){
+                console.log(err);
+            }
+console.log("the list", list)
+            return  res.status(201).json({data : list})
+         });
+
+Virtuals in mongoose 
+Virtuals are document properties that you can get and set but that do not get persisted to MongoDB
+Mongoose virtuals are not stored in MongoDB, which means you can't query based on Mongoose virtuals.
+In model change
+Pass toJson , toObject  
+ Vituals: true 
+ 
+schema.virtual('fullString').get(function(){
+        return this.name +' '+this.email;
+}).set(function(){
+    this.name = v.substr(0, v.indexOf(' '));
+    this.email = v.substr(v.indexOf(' ') + 1);
+})
+
+
+
+
+Lean  in mongoose 
+The lean option tells Mongoose to skip hydrating the result documents.
+This makes queries faster and less memory intensive, but the result documents are plain old JavaScript objects (POJOs), not Mongoose documents.
+
+
+
+
+Capped in mongoose 
+Capped option to the maximum size of the collection in bytes.
+
+Discriminator
+Discriminators are a schema inheritance mechanism. 
+They enable you to have multiple models with overlapping schemas on top of the same underlying MongoDB collection.
+
+Example of discriminator
+const newSchema  =  new mongoose.Schema({
+    url :{
+        type :String 
+    },
+    fewthings: {
+        type : String 
+    }
+},{ discriminatorKey: 'kind' })
+const newModel  = model.discriminator("newModel", newSchema);
+module.exports  = newModel;
+
+
+
+
+When you define a discriminator, Mongoose adds a path to your schema that stores which discriminator a document is an instance of. By default, Mongoose adds an __t path, but you can set discriminatorKey to overwrite this default.
+
+
+Query Helper 
+In options 
+query:{
+      byName(name){
+        return this.where({name : name })
+      }  
+    },
+
+In controller 
+   const data  = await userModel.find().byName(req.params.id);
+         
+
+
+
+Aliases  in mongoose
+const personSchema = new Schema({
+  n: {
+    type: String,
+    
+    alias: 'name'
+  }
+});
+
+
+Translation in mongoose
+
+
+Write concern 
+
+Strict mode in mongoose 
+
+Optimistic concurrency  
+Optimistic concurrency is a strategy to ensure the document you're updating didn't change between when you loaded it using find() or findOne(), and when you update it using save().
+
+
+
+Read Preferences 
+Read preference describes how MongoDB clients route read operations to the members of a replica set.
+
+
+Advance mongoose 
+https://medium.com/@SigniorGratiano/modelling-data-and-advanced-mongoose-175cdbc68bb1
+
+
+What is difference between ORM AND ODM 
+https://medium.com/spidernitt/orm-and-odm-a-brief-introduction-369046ec57eb
+Object relationship manager
+1.ORM is used relation database such as sql ,postgres etc 
+2. With the help of ORM, you don’t actually need to use SQL at all. 
+3. You can directly interact with the database and perform queries in the same language you 
+are using for your back-end code!
+
+
+Example of ORL is sequelize 
+Object document manager
+ODM is used in no sql database such as mongodb , cassandra etc 
+ODM is Object Document Mapping. It is like an ORM for non-relational databases or distributed databases such as MongoDB, i.e., mapping an object model and NoSQL database (document databases, graph database, etc.).
+Example of ODM are mongoose package 
+
+
+
+What is collation in mongoDB 
+Collation allows users to specify language-specific rules for string comparison, such as rules for letter case and accent marks.
+
+PROBLEM WITH DOCUMENTS WITH ARRAY 
+16 MB document size limit 
+Index performance will decrease as array size decreases 
+Store the data together which are accessed together
+
+What is cursor in mongoose 
+In MongoDB parlance, a cursor is an object that you can use to iterate through the results of a query. 
+If you execute a query against a MongoDB server directly, the result is a cursor rather than a bunch of documents.
+
+
+What is hint in mongoose 
+The index to "hint" or force MongoDB to use when performing the query. Specify the index either by the index name or by the index specification document.
+db.users.find().hint( "age_1" )
+
+
+What is pipeline in database
+The database pipeline is consist of different stages to process the data
+
+What is aggregation pipeline 
+An aggregation pipeline consists of one or more stages that process documents:
+
+Each stage performs an operation on the input documents. For example, a stage can filter documents, group documents, and calculate values.
+Example of stages in pipeline are $group ,   $match , $count etc 
+
+db.orders.aggregate( [
+   // Stage 1: Filter pizza order documents by pizza size
+   {
+      $match: { size: "medium" }
+   },
+   // Stage 2: Group remaining documents by pizza name and calculate total quantity
+   {
+      $group: { _id: "$name", totalQuantity: { $sum: "$quantity" } }
+   }
+] )
+
+
+Difference between remove and drop in mongod db 
+Remove is used to remove the document from collections 
+Example = db.products.remove( { qty: { $gt: 20 } } )
+
+Drop is user drop the collections and its documents 
+Example = Db.products.drop();
+
+
+ Command to get Stats of the database 
+db.stats()
+{
+        "db" : "medibell",
+        "collections" : 8,
+        "views" : 0,
+        "objects" : 95,
+        "avgObjSize" : 222.73684210526315,
+        "dataSize" : 21160,
+        "storageSize" : 237568,
+        "freeStorageSize" : 102400,
+        "indexes" : 11,
+        "indexSize" : 299008,
+        "indexFreeStorageSize" : 118784,
+        "totalSize" : 536576,
+        "totalFreeStorageSize" : 221184,
+        "scaleFactor" : 1,
+        "fsUsedSize" : 204391555072,
+        "fsTotalSize" : 254721126400,
+        "ok" : 1
+}
+
+
+Index in mongoose database 
+
+Index in database 
+Index technique to speed up read operation on databases  
+
+
+Types of indexes in mongoose 
+
+Single field index
+In single field index in which one index field refers to single data field 
+
+Compound field index 
+In compound field index in which one index field refers to the multiple data fields 
+
+Multikey field index 
+https://www.mongodb.com/docs/manual/core/index-multikey/
+In multikey field index  in which one index field refers to the multiple data fields 
+To index a field that holds an array value, MongoDB creates an index key for each element in the array. 
+These multikey indexes support efficient queries against array fields. Multikey indexes can be constructed over arrays that hold both scalar values 
+ (e.g. strings, numbers) and nested documents.
+
+Text index 
+db.reviews.createIndex(
+   {
+     subject: "text",
+     comments: "text"
+   }
+ )
+MongoDB provides text indexes to support text search queries on string content.
+A collection can only have one text search index, but that index can cover multiple fields.
+Hashed Index 
+Hashed indexes maintain entries with hashes of the values of the indexed field.
+db.collection.createIndex( { _id: "hashed" } )
+
+
+
+
+What is  disadvantage indexes 
+Indexes takes a space 
+Indexes impact storage  engine performance 
+Indexes  impact the write performance 
+
+
+Precautions
+Don't create unnecessary indexes as each index takes a space  
+Indexes is applied to only those attributes  which are most frequently accessed 
+
+
+
