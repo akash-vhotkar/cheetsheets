@@ -1,0 +1,4 @@
+setup the global editor 
+by default git uses nano as editor we can set to the vim 
+git config --global core.editor "vim"
+
