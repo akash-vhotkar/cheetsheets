@@ -1,0 +1,15 @@
+Difference between views and materialize views
+
+views store query expression and does not store table 
+whenever we hit the view  engine will execute the query generate the table on the fly Hence we get the latest data 
+views is slow in terms of complex data 
+views should be used when we have small query and unfrequet query 
+Views are used when data is to be accessed infrequently and the data in a table gets updated on a frequent basis.
+views is also called dynamic view 
+
+In materialized view  they store query expressions and table on the disk 
+Materialized Views are used when data is to be accessed frequently and data in the table not get updated on a frequent basis.
+Whenever we call materialize view it  having precomputed data it will just give that data do not execute the query 
+in material  view data needs to updated manually or using triggers etc 
+Materialize view is fast as compared to the views
+materialize view is also called static view
