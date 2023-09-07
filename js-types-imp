@@ -1,0 +1,20 @@
+ParseInt
+ 
+parameter one  = value  or string
+parameter two  = radix value (2, 8 , 10 , 16 etc)
+if returns a numbers untill he finds any charater or decimal or space or invalid value 
+323H = 323
+HSDF = Nan 
+232 32 = 232
+823.8 = 823
+011 = 9  (convert decimal to binary here default )
+parseInt(011, 2) = 9 
+
+Number 
+if the parameter is passed is not valid number it returns Nan 
+else it returns number
+
+3289H , kjkj = Nan
+3.3 = 3.3
+011 = 9 converts decimal to binary default here
+'32 23'= NaN
