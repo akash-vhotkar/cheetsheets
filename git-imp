@@ -2,3 +2,26 @@ setup the global editor
 by default git uses nano as editor we can set to the vim 
 git config --global core.editor "vim"
 
+Head  is pointer which points to the latest commit 
+
+Git reset  
+this command works  with only in  local repository 
+if you want to undo a commit 
+
+ 
+git reset --soft 
+git reset --soft  HEAD~1
+commit id is deleted  
+Move the file to the staging area 
+
+git mixed  => mixed
+git reset --mixed HEAD~2
+it will always delete the commit   
+files  will back to  the working area which is untracke
+
+Git Hard 
+git reset  --hard HEAD~2
+commit is also deleted 
+files and content associated with file is also deleted.
+we can't recover the file 
+
